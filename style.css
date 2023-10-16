@@ -1,0 +1,504 @@
+/* 全体のCSS */
+html {
+    font-size: 100%;
+}
+body {
+    background-color: #f0f0f0;
+    color: #000;
+    font-size: 0.875rem;
+}
+a {
+    color: #000;
+    font-size: 0.875rem;
+    text-decoration: none;
+}
+
+/* vertical-align:bottomで画像を下揃えにする */
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+}
+li {
+    list-style: none;
+}
+.logo {
+    width: 100px;
+    line-height: 1px;
+    margin-right: 60px;
+}
+.logo a {
+    display: block;
+}
+
+.section-title {
+    font-weight: normal;
+    line-height: 1;
+    margin-bottom: 50px;
+
+}
+
+/* 擬似要素で下線を引く。display:blockで、対象要素に対して縦並びに。
+横線なので、widthが線の長さ、heightが太さになる */
+.section-title::after {
+    content: "";
+    width: 40px;
+    height: 1px;
+    background-color: #000;
+    display: block;
+}
+
+/*display:inline-blockを設定してブロック化することで、改行されてmargin-bottomが使用可能に。
+letter-spacingで字間を設定。1em＝文字の高さ。0.1em＝文字の高さの1/10」0.5em＝1/2　の大きさの字間ができる*/
+.section-title .en {
+    display: block;
+    font-size: 2.25rem;
+    letter-spacing: 0.3rem;
+    margin-bottom: 36px;
+} 
+.section-title .ja {
+    display: block;
+    font-size: 0.875rem;
+    margin-bottom: 36px;
+}
+
+/* sectionクラス共通　横幅を設定 */
+.wrapper {
+    width: 100%;
+    max-width: 1032px;
+    padding: 0 16px;
+    margin: 0 auto;
+    /* マージンライト36pxがついていたので除去してレイアウト崩れを修復 */
+    margin-right: 0;
+
+}
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    header
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー----------ーーーーーーーーーーー */
+
+/* divタグ(クラスinner）とa（お問合わせボタン）を横並びに。 */
+header {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* クラスinnerの中身（h1とnav）を横並びに */
+header .inner {
+    display: flex;
+    align-items: center;
+}
+
+/* ナビを横並びに */
+header .inner ul {
+    display: flex;
+    align-items: center;
+}
+
+/* 隣接するナビ同士の間隔をあける */
+header .inner li {
+    margin-right: 30px;
+}
+
+/* ナビの一番右端のliはmargin:right不要 */
+header .inner li:last-child {
+    margin-right: 0;
+}
+
+header .contact {
+    width: 200px;
+    height: 80px;
+    line-height: 80px;
+    background-color: #000;
+    color: #fff;
+    font-size: 0.75rem;
+    display: inline-block;
+    text-align: center;
+}
+
+header .contact:hover {
+    background-color: #333;
+}
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    mainvisual
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー----------ーーーーーーーーーーー */
+.mainvisual {
+    margin-bottom: 120px;
+}
+/*メインビジュアルを画面の高さに合わせる.headerの高さが80pxあるので、100vhから80px分だけマイナスする*/
+.mainvisual img {
+    width: 100%;
+    height: calc(100vh - 80px);
+    /* 画像の縦横比を崩さないように表示 */
+    object-fit: cover;
+}
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    sectionーNews
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー----------ーーーーーーーーーーー */
+
+.news {
+    margin-bottom: 80px;
+}
+.news .list {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* width:calc(100%/3)で横幅を3等分 */
+.news .list li {
+    width: calc(100%/3);
+    border-right: solid 1px #000;
+    padding: 10px 20px;
+}
+
+/* 左端は余白なし */
+.news .list li:first-child {
+    padding-left: 0;
+}
+
+/* 右端は縦線なし余白なし */
+.news .list li:last-child {
+    border-right: none;
+    padding-right: 0;
+}
+
+/* 日付＆ニュースタイトルの下に余白 */
+.news .list li .date-area {
+    margin-bottom: 16px;
+}
+
+/* ニュースタイトル */
+.news .list li .date-area span {
+    width: 50px;
+    height: 20px;
+    line-height: 20px;
+    background-color: #000;
+    color: #fff;
+    /* インライン要素のspanをインライン要素にしてmarginなどを設定できるようにする */
+    display: inline-block;
+    font-size: 0.75rem;
+    /* 左隣の日付との間に余白 */
+    margin-left: 10px;
+    text-align: center;
+}
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    sectionーAbout
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー----------ーーーーーーーーーーー */
+.about {
+    display: flex;
+    margin-bottom: 120px;
+}
+
+/* 領域を左右に2分する左半分の幅を設定 */
+.about .img {
+    width: 55%;
+}
+.about .img img {
+    width: 100%;
+    height: 400px;
+     /* 画像の縦横比を崩さないように表示 */
+    object-fit: cover;
+}
+/* 領域2分する右半分の幅を設定 */
+.about .text {
+    width: 45%;
+    /* 下にずらすためにパディングトップを多くとる。左右の余白は％で指定*/
+    padding: 180px 5% 0 5%;
+}
+/* テキストの行間を設定 */
+.about .text P {
+    line-height: 2.2;
+}
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    sectionーBusiness
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー----------ーーーーーーーーーーー */
+
+.business { 
+    margin-bottom: 120px;
+}
+.flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10%;
+}
+.business .flex .left {
+    width: 46%;
+    margin-top: 100px;
+}
+.business .flex .right {
+    width: 46%;
+}
+.business .flex .item {
+    margin-bottom: 50px;
+}
+/* 2段の画像は、左右ともにマージンボトムをなくしたい。leftもrightもそれぞれitemを2つ格納している。
+2つ目はlastchildで指定すればよい。すると2段目の画像は左右ともにマージンゼロにできる */
+.business .flex .item:last-child {
+    margin-bottom: 0;
+}
+.business .flex .title {
+    font-weight: bold;
+    margin: 0 0 10px 18px;
+    position: relative;
+}
+/* 擬似要素で横線を引く。titleをposition:relative（基準）としてleftをマイナスの値にすることで、基準地から左にずらす。
+横幅８px高さ１pxの横線を引く。top: 50%で上からは半分、ちょうど縦軸中央の位置に線が引ける*/
+.business .flex .title::before {
+    content:"";
+    width: 8px;
+    height: 1px;
+    background-color: #000;
+    position: absolute;
+    top: 50%;
+    left: -18px;
+}
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    sectionーCompany
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー----------ーーーーーーーーーーー */
+
+/* テキストと画像はpositionを使って配置.about:absolute;で高さがなくなるため、heightを指定して高さを確保 */
+.company {
+    height: 750px;
+    /* クラスcompanyの中の、クラスtextとクラスimgを横並びに */
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.company .text {
+    width: 55%;
+    background-color: #fff;
+    padding: 100px 8% 100px 6%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.company .img {
+    width: 53%;
+    position: absolute;
+    top: 115px;
+    right: 0;
+}
+.company .img img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+/* クラスtextの中のdtとddを横並びにする */
+.company .info {
+    display: flex;
+    align-items: center;
+    /* 折り返す */
+    flex-wrap: wrap;
+}
+
+/* dtの幅を20％に指定することで綺麗な位置で折り返す */
+.company .info dt {
+    width: 20%;
+    margin-top: 10px;
+}
+/* 1つめのdtにはmargin-topを設定しない */
+.company .info dt:first-of-type{
+    margin-top: 0;
+}
+/* ddの幅を80％に指定することで綺麗な位置で折り返す */
+.company .info dd {
+    width: 80%;
+    margin-top: 10px;
+}
+/* 1つめのddにはmargin-topを設定しない。first-of-typeは兄弟要素の中で『指定した要素の最初の要素』を指定 */
+.company .info dd:first-of-type {
+    margin-top: 0;
+}
+/* クラスaddのddはdtとセットではないため、上のdtの分だけ左に余白をとり、上のddと揃えるようにする */
+.company .info .add {
+    margin-left: 20%;
+}
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    footer
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー----------ーーーーーーーーーーー */
+
+footer {
+    background-color: #fff;
+    padding-bottom: 20px;
+}
+footer .flex{
+    /* クラスflex内の「クラスlogo」と「クラスinfo（テキスト）」を横並びに */
+    display: flex;
+    align-items: center;
+    /* 両端に配置 */
+    justify-content: space-between;
+    padding: 40px 0;
+}
+/* pc用レイアウトで当てたmargin-right60pxをゼロに変更 */
+footer .flex .logo {
+    margin-right: 0;
+}
+footer .copyright {
+    font-size: 0.625rem;
+}
+
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    スマホ表示　　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー----------ーーーーーーーーーーー */
+
+@media screen and (max-width: 900px) {
+    .logo {
+        width: 80px;
+        margin: 80px 0;
+    }
+    .section-title {
+        margin-bottom: 34px;
+    }
+    /* ニュースから下線までの余白 */
+    .section-title .ja {
+        margin-bottom: 24px;
+    }
+    /* ーーーーーーーーーーーーーーーーーー
+        header　　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　
+    ーーーーーーーーーーーーーーーーーーー */
+    /* h1（クラスlogo）とnavを改行縦並び */
+    header .inner {
+        /* display: flex; */
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    /* クラスinnerの高さGA300pxあり、ナビが下がってメインビジュアルに隠れてしまうので一時措置 */
+    header .inner ul {
+        margin-top: -75px;
+    }
+    header .contact {
+        display: none;
+    }
+    /* ーーーーーーーーーーーーーーーーーー
+        Mainvisual　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　
+    ーーーーーーーーーーーーーーーーーーー */
+    .mainvisual {
+        margin-bottom: 80px;
+    }
+    /* ーーーーーーーーーーーーーーーーーー
+        News　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　
+    ーーーーーーーーーーーーーーーーーーー */
+    .news {
+        margin-bottom: 80px;
+    }
+    .news .list {
+        flex-direction: column;
+    }
+    .news .list li {
+        width: 100%;
+        border-right: none;
+        padding: 10px 0;
+        margin-bottom: 20px;
+    }
+    .news .list li:last-child {
+        margin-bottom: 0;
+    }
+    /* ーーーーーーーーーーーーーーーーーー
+        About　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　
+    ーーーーーーーーーーーーーーーーーーー */
+    /* 画像とテキストを縦に並べる。左右分割していた画像（左）とテキスト（右）を縦に。
+    pc用レイアウトの方で既にクラスaboutにdisplay:flexを指定済にてflex-directionが使える */
+    .about {
+        flex-direction: column;
+        margin-bottom: 80px;
+    }
+    /* 画像とテキスト両方とも横幅いっぱいに並べたいので、両者が格納されているクラスimgに対して指定する */
+    .about .img {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    /* 画像の高さを指定したいので、クラスimgの中のimgに対して指定 */
+    .about .img img {
+        height: 300px;
+    }
+    .about .text {
+        width: 100%;
+        padding: 0 16px;
+    }
+    /* ーーーーーーーーーーーーーーーーーー
+        Business　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　
+    ーーーーーーーーーーーーーーーーーーー */
+    .business {
+        margin-bottom: 80px;
+    }
+    .business .flex {
+        flex-direction: column;
+        padding: 0;
+    }
+    .business .flex .left {
+        width: 100%;
+        margin: 0 0 30px 0;
+    }
+    .business .flex .right {
+        width: 100%;
+    }
+    .business .flex .item {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .business .flex .title {
+        text-align: left;
+    }
+    /* ーーーーーーーーーーーーーーーーーー
+        Company　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　
+    ーーーーーーーーーーーーーーーーーーー */
+    /* スマホではposition:staticを設定してrelativeとabsoluteを解除 */
+    .company {
+        height: auto;
+        flex-direction: column;
+        position: static;
+    }
+    /* position: staticでabsoluteを解除 */
+    .company .text {
+        width: 100%;
+        padding: 40px 20px;
+        margin-bottom: 20px;
+        position: static;
+    }
+    /* position:static;でabsoluteを解除 */
+    .company .img {
+        width: 100%;
+        padding: 0;
+        position: static;
+    }
+    /* dt（項目名）とdd（テキスト）を縦並びに */
+    .company .info {
+        flex-direction: column;
+    }
+    /* pc用レイアウトのmargin-top10pxをスマホでは20pxに変更 */
+    .company .info dt {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .company .info dd {
+        width: 100%;
+        margin-top: 5px;
+        /* インデントをつける */
+        padding-left: 14px;
+    }
+    /* pc用レイアウトで「最初のddにmarginーtopゼロ」を設定したがスマホでは5px当てる */
+    .company .info dd:first-of-type {
+        margin-top: 5px;
+    }
+    /* pc用レイアウトでインデントを付けるために当てたmarginーleftを、スマホではゼロにする */
+    .company .info .add {
+        margin-left: 0;
+    }
+    /* ーーーーーーーーーーーーーーーーーー
+        footer　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　♦︎　
+    ーーーーーーーーーーーーーーーーーーー */
+    footer .flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    footer .flex .logo {
+        margin-bottom: 10px;
+    }
+}
