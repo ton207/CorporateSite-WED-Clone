@@ -220,6 +220,8 @@ header .contact:hover {
 
 .business { 
     margin-bottom: 120px;
+    /* 最終不具合修正 margin-left:155付いているので除去 */
+    margin: 0 auto;
 }
 .flex {
     display: flex;
@@ -269,6 +271,8 @@ header .contact:hover {
     display: flex;
     align-items: center;
     position: relative;
+    /* 最終不具合修正ー右に余白がないので解消 */
+    margin: 0 auto;
 }
 .company .text {
     width: 55%;
