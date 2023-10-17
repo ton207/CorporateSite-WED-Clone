@@ -1,4 +1,6 @@
-/* 全体のCSS */
+/* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+    全体 / 共通クラス
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー----------ーーーーーーーーーーー */
 html {
     font-size: 100%;
 }
@@ -34,11 +36,9 @@ li {
     font-weight: normal;
     line-height: 1;
     margin-bottom: 50px;
-
 }
 
-/* 擬似要素で下線を引く。display:blockで、対象要素に対して縦並びに。
-横線なので、widthが線の長さ、heightが太さになる */
+/* 擬似要素で下線を引く。display:blockで対象要素に対して縦並びに。横線なのでwidth＝線の長さ、height＝線の太さ */
 .section-title::after {
     content: "";
     width: 40px;
@@ -63,13 +63,10 @@ letter-spacingで字間を設定。1em＝文字の高さ。0.1em＝文字の高�
 
 /* sectionクラス共通　横幅を設定 */
 .wrapper {
-    width: 100%;
     max-width: 1032px;
     padding: 0 16px;
     margin: 0 auto;
-    /* マージンライト36pxがついていたので除去してレイアウト崩れを修復 */
-    margin-right: 0;
-
+    width: 100%;
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
@@ -219,9 +216,8 @@ header .contact:hover {
 ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー----------ーーーーーーーーーーー */
 
 .business { 
-    margin-bottom: 120px;
-    /* 最終不具合修正 margin-left:155付いているので除去 */
-    margin: 0 auto;
+    /* 最終不具合修正 margin-left:155pxをゼロに。ボトムは120pxを続行 */
+    margin: 0 auto 120px;
 }
 .flex {
     display: flex;
@@ -271,8 +267,9 @@ header .contact:hover {
     display: flex;
     align-items: center;
     position: relative;
-    /* 最終不具合修正ー右に余白がないので解消 */
-    margin: 0 auto;
+    /* 最終不具合修正。右に余白が無いので作る。
+    但しmargin0autoにしてしまうとクラスtextのmargin：bottomがなくなりレイアウトが崩れるので注意。*/
+    margin:  auto;
 }
 .company .text {
     width: 55%;
@@ -346,6 +343,10 @@ footer .flex .logo {
 }
 footer .copyright {
     font-size: 0.625rem;
+}
+/* レイアアウト崩れ修正 margin-left94px付いていたので修正*/
+footer .wrapper {
+    margin: 0 11px;
 }
 
 /* ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
